@@ -1,0 +1,123 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	background-color: #800040;
+	font-family: Georgia;
+}
+
+#page {
+	box-sizing: border-box;
+	font-family: Georgia;
+	background-color: #800040;
+}
+
+.container.inset {
+	background-color: #530029;
+	padding: 2em;
+	width: 83%;
+	margin-top: 4em;
+	margin-left: auto;
+	margin-right: auto;
+	border: 10px double #BD4904;
+	box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+	box-sizing: border-box;
+
+}
+
+.container.form {
+	width: 20em;
+}
+
+.rounded {
+	border-radius: 2em;
+}
+
+textarea {
+	max-width: 100%;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: rgba(200, 200, 200, 0.6);
+	border: none;
+	font-family: monospace;
+	padding: 10px;
+}
+
+a.btn {
+	padding: 0.5em;
+	text-transform: uppercase;
+	background: linear-gradient(to bottom, rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);
+	color: white;
+	text-decoration: none;
+}
+a.btn:active {
+	background: linear-gradient(to bottom, rgba(109,0,25,1) 0%,rgba(143,2,34,1) 44%,rgba(169,3,41,1) 100%);
+}
+
+.container {
+	color: #d28a03;
+	background: #5b1f00;
+	font-size: 1.2em;
+}
+
+.cen {
+	text-align: center;
+}
+
+h1 {
+	font-weight: normal;
+	color: #c9b23d;
+	padding: 1em 0 0.5em 0;
+}
+h2 {
+	color: #d3bc24;
+	padding: 1em 0 0.5em 0;
+}
+
+a {
+	color: #c69d3e;
+	font-weight: bold;
+}
+
+pre {
+	border-left: 3px solid #274e73;
+	color: #ac9900;
+	margin-left: 10em !important;
+	margin-top: 1.5em !important;
+	margin-bottom: 1.5em !important;
+	padding-left: 2em;
+}
+
+#desc * {
+	width: 80%;
+	margin: auto;
+	line-height: 1.5em;
+}
+
+.title {
+	text-align: center;
+	font-size: 7em;
+	color: wheat;
+	text-shadow: 0 0 10px cornsilk;
+	background-color: blanchedalmond;
+	box-shadow: 0 27px 140px black;
+}
+
+.subtitle {
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.5em;
+	color: wheat;
+	text-shadow: 0 0 10px cornsilk;
+	width: 100%;
+	background: cadetblue;
+}
+
+#output-theme {
+	font-size: 1px;
+	font-family: monospace;
+	background: black;
+	color: white;
+}

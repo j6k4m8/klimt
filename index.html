@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Klimt &ndash; JM</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="processing.js" type="text/javascript"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="klimt.js">
+	</script>
+	<script src="base16.js"></script>
+	<script>
+		window.setTimeout(function() {
+		inst = Processing.getInstanceById('klimt');
+			console.log(inst);
+	}, 1000);
+	</script>
+
+	<script>
+	      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	      ga('create', 'UA-44566813-1', 'matelsky.com');
+	      ga('send', 'pageview');
+
+	    </script>
+</head>
+<body>
+	<div id="page">
+		<div class="title">Klimt</div>
+		<div class="subtitle">Color Scheme Builder</div>
+		<div class="container inset rounded form">
+			<h1 class="cen">Step One</h1>
+			<p class="cen">Select a file.</p>
+			<br>
+			<input type="file" onchange="onFileSelected(event)">
+		</div>
+
+		<div class="container inset rounded">
+			<h1 class="cen">Step Two</h1>
+			<p class="cen">Look at some colors. w0w</p>
+			<br>
+			<div id="content" style="text-align: center">
+				<div>
+					<canvas id="klimt" data-processing-sources="klimt.pde"
+					width="640" height="600">
+				</canvas>
+			</div>
+		</div>
+
+		<div class="container inset rounded">
+			<div id="output"></div>
+			<div id="output-theme"></div>
+		</div>
+	</div>
+
+	<div class="container inset rounded" id="desc">
+			<h1>Klimt</h1>
+			<p>This OneHourProject accepts an image input and returns a hexadecimal color scheme that will nicely match the image. It also returns the text of a <code>*.tmTheme</code> file, which is used for TextMate and Sublime color schemes. This means that you can use Klimt to generate syntax highlighting that matches a famous piece of art. It is so named because of the consistent but diverse color palette of the eponymous symbolist artist, <a href="http://en.wikipedia.org/wiki/Gustav_Klimt">Gustav Klimt</a>.</p>
+			<p>You can plug the resultant color scheme into a TextMate theme template for <a href="https://www.sublimetext.com/">Sublime Text</a>. (This is the result of a second OneHourProject that took the initial color-finding algorithm and applied it to the theme). This code does not do contrast-checking, so you may wind up with an unusable color scheme (at least until the next iteration)!</p>
+			<p>The color scheme for this text was taken from a Klimt portrait of Adele Bloch. The fuchsia background was taken from an interesting picture of a matchbox I found on the internet somewhere.</p>
+
+			<p>Below is a demo of a color scheme generated using this software.</p>
+			<img style="width: 50%; margin: 0 25%" src="demo.jpg">
+
+			<h2>The Dealio</h2>
+			<p>I use <a href="http://processingjs.org/">Processing.js</a> to find the 'primary color' of the image, using an algorithm something like this:
+<pre>
+for every pixel in the image:
+	for every hue in 0..359:
+		add +1 to the association of that hue.
+
+find the saturation of the most common hue by finding the
+average saturation of all of the pixels with that hue value,
+or within a certain range on either side.
+
+------------------------------------------------------------
+
+Next, pick a pixel at random. If a similar hue has not been
+found yet, add this to the list of interesting colors.
+Otherwise, pick a different pixel.
+</pre>
+			</p>
+			<p>There are clearly better ways of finding interesting or important colors, but my hour was running low and my other method was returning things that were <i>too</i> unique; this effect could be mitigated by averaging a few pixels when sampling the image.</p>
+
+			<h2>Known Bugs</h2>
+			<p>If the software has a hard time finding a prevailing hue, or if the hue is (practically) white, it may return a bright red color. This means that your image choice was poor. Shame on you.</p>
+			<p>Noisy images (with pixelation artifacts) may give strange results. (This too could be mitigated by averaging more points).</p>
+		</div>
+
+</body>
+</html>
